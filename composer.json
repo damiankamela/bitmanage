@@ -1,0 +1,21 @@
+{
+    "name": "bitmanage",
+    "description": "bitmanage - manages bitcoin blockchains",
+    "keywords": ["bitcoin", "blockchains"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damian Kamela",
+            "email": "damian.kamela@dige.pl",
+            "role": "Creator / Main Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Example\\": "src/"
+        }
+    }
+}
