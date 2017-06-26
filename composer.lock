@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "87473507dec08db813f249ee83dfd3cc",
+    "hash": "3ec17a8f22fa8b36abc6eb52238973c5",
+    "content-hash": "5f829429e4ab6ddc9fa3c424f66b86ba",
     "packages": [
         {
             "name": "fguillot/json-rpc",
@@ -43,7 +44,7 @@
             ],
             "description": "Simple Json-RPC client/server library that just works",
             "homepage": "https://github.com/fguillot/JsonRPC",
-            "time": "2017-01-12T21:31:30+00:00"
+            "time": "2017-01-12 21:31:30"
         },
         {
             "name": "filp/whoops",
@@ -104,7 +105,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2017-06-03T18:33:07+00:00"
+            "time": "2017-06-03 18:33:07"
         },
         {
             "name": "nikic/fast-route",
@@ -147,7 +148,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2017-01-19T11:35:12+00:00"
+            "time": "2017-01-19 11:35:12"
         },
         {
             "name": "patricklouys/http",
@@ -192,7 +193,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-18T15:47:28+00:00"
+            "time": "2016-08-18 15:47:28"
         },
         {
             "name": "psr/log",
@@ -239,7 +240,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         }
     ],
     "packages-dev": [],
@@ -249,7 +250,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0"
+        "php": ">=7.0"
     },
     "platform-dev": []
 }
