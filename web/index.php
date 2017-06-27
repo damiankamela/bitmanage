@@ -1,4 +1,4 @@
-<?php use JsonRPC\Exception\ServerErrorException;
+<?php
 
 require __DIR__ . '/../src/Bootstrap.php'; ?>
 
