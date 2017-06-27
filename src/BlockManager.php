@@ -4,21 +4,17 @@ namespace BitManage;
 
 use JsonRPC\Exception\ServerErrorException;
 
-class Client
+class BlockManager
 {
-    /** @var \JsonRPC\Client */
-    protected $client;
+    /** @var ConnectorInterface */
+    protected $connector;
 
     /**
-     * @param string $ip
-     * @param string $username
-     * @param string $password
-     * @param string $port
+     * @param ConnectorInterface $connector
      */
-    public function __construct(string $ip, string $username, string $password, string $port = '8332')
+    public function __construct(ConnectorInterface $connector)
     {
-        $url = sprintf('http://%s:%s@%s:%s/', $username, $password, $ip, $port);
-        $this->client = new \JsonRPC\Client($url, false, null);
+        $this->connector = $connector;
     }
 
     /**
@@ -28,7 +24,7 @@ class Client
     public function getBlockHash(int $blockNumber)
     {
         try {
-            return $this->client->getblockhash($blockNumber);
+            return $this->connector->getblockhash($blockNumber);
         } catch (ServerErrorException $exception) {
             return null;
         }
@@ -55,7 +51,7 @@ class Client
     public function getBlockInfoByHash(string $hash)
     {
         try {
-            return $this->client->getblock($hash);
+            return $this->connector->getblock($hash);
         } catch (ServerErrorException $exception) {
             return null;
         }
@@ -70,5 +66,16 @@ class Client
         $hash = $this->getBlockHash($blockNumber);
 
         return $hash ? $this->getBlockInfoByHash($hash) : null;
+    }
+
+    /**
+     * @param ConnectorInterface $connector
+     * @return $this
+     */
+    public function setConnector(ConnectorInterface $connector)
+    {
+        $this->connector = $connector;
+
+        return $this;
     }
 }
