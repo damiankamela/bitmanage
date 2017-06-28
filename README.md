@@ -1,17 +1,17 @@
-### BITMANAGE
+# BITMANAGE
+
 ## Install - default
 ```
 cp .env.dist .env
 composer install
 ```
-### Install - docker
+
+## Install - docker
 ```
     docker-compose build
     docker-compose up
     docker exec -it bitmanage-php-fpm bash
+    cp .env.dist .env
     composer install
-    
-    RUN: `127.0.0.1:7717`
 ```    
-
-
+Run: `127.0.0.1:7717`
