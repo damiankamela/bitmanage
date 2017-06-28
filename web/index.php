@@ -1,8 +1,6 @@
 <?php
 
-use BitManage\BlockManager;
-use BitManage\ClientWrapper;
-use BitManage\CLIWrapper;
+use BitManage\ViewRenderer;
 
 require __DIR__ . '/../src/Bootstrap.php'; ?>
 
@@ -15,37 +13,5 @@ require __DIR__ . '/../src/Bootstrap.php'; ?>
     </form>
 
 <?php
-$blockNumber = $_POST['block_number'] ?? null;
-$connectorType = $_POST['connector_type'] ?? null;
-
-if (!$blockNumber || !$connectorType) {
-    return;
-}
-
-if ('rpc' === $connectorType) {
-    $connector = new ClientWrapper('127.0.0.1', 'username', 'password');
-} else {
-    $connector = new CLIWrapper('/home/damian/.bitcoin');
-}
-
-$manager = new BlockManager($connector);
-
-try {
-    $blockInfo = $manager->getBlockInfo($blockNumber);
-} catch (\Whoops\Exception\ErrorException $exception) {
-    echo $exception->getMessage();
-
-    return;
-}
-
-if (is_null($blockInfo)) {
-    echo "Block not found.";
-} else {
-    foreach ($blockInfo as $name => $value) {
-        if (is_array($value)) {
-            continue;
-        }
-
-        echo sprintf('<b>%s:</b> %s<br>', $name, $value);
-    }
-}
+$renderer = new ViewRenderer();
+$renderer->renderView();
