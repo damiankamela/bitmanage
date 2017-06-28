@@ -1,5 +1,6 @@
 ### BITMANAGE
 ## Install
+`cp .env.dist .env`
 ```
     docker-compose build
     docker-compose up

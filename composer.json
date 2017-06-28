@@ -15,7 +15,8 @@
         "filp/whoops": "^2.1",
         "patricklouys/http": "^1.4",
         "nikic/fast-route": "^1.2",
-        "fguillot/json-rpc": "^1.2"
+        "fguillot/json-rpc": "^1.2",
+        "vlucas/phpdotenv": "^2.4"
     },
     "autoload": {
         "psr-4": {

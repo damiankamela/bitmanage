@@ -2,6 +2,8 @@
 
 namespace BitManage;
 
+use Dotenv\Dotenv;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
@@ -21,3 +23,5 @@ if ($environment !== 'production') {
 }
 $whoops->register();
 
+$dotenv = new Dotenv(__DIR__.'/../');
+$dotenv->load();
