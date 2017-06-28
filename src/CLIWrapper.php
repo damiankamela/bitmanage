@@ -17,7 +17,6 @@ class CLIWrapper implements ConnectorInterface
     protected $bitDataDir;
 
     /**
-     * CLIWrapper constructor.
      * @param string      $bin
      * @param string|null $bitDataDir
      */
@@ -46,6 +45,7 @@ class CLIWrapper implements ConnectorInterface
 
     /**
      * @param string $method
+     * @param array  $arguments
      * @return array
      */
     protected function runCommand(string $method, array $arguments)
