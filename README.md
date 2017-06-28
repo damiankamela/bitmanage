@@ -1,6 +1,6 @@
 # BITMANAGE
 
-## Install - default
+## Install
 ```
 cp .env.dist .env
 composer install
