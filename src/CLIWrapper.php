@@ -14,17 +14,17 @@ class CLIWrapper implements ConnectorInterface
     protected $bin;
 
     /** @var string */
-    protected $dataDirPath;
+    protected $bitDataDir;
 
     /**
      * CLIWrapper constructor.
      * @param string      $bin
-     * @param string|null $dataDirPath
+     * @param string|null $bitDataDir
      */
-    public function __construct(string $dataDirPath = null, string $bin = '/usr/bin/bitcoin-cli')
+    public function __construct(string $bitDataDir = null, string $bin = null)
     {
-        $this->bin = $bin;
-        $this->dataDirPath = $dataDirPath;
+        $this->bitDataDir = $bitDataDir;
+        $this->bin = $bin ?? Config::get('bitcoin_bin');
     }
 
     /**
@@ -66,8 +66,8 @@ class CLIWrapper implements ConnectorInterface
     {
         $command = $this->bin;
 
-        if ($this->dataDirPath) {
-            $command .= ' -datadir=' . $this->dataDirPath;
+        if ($this->bitDataDir) {
+            $command .= ' -datadir=' . $this->bitDataDir;
         }
 
         $command .= ' ' . strtolower($method) . ' ' . implode(' ', $arguments);
