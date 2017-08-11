@@ -8,5 +8,4 @@ namespace BitManage;
  */
 interface ConnectorInterface
 {
-
 }

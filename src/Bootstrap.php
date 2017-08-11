@@ -1,4 +1,4 @@
-<?php declare(strict_types = 1);
+<?php
 
 namespace BitManage;
 
@@ -8,20 +8,18 @@ require __DIR__ . '/../vendor/autoload.php';
 
 error_reporting(E_ALL);
 
-$environment = 'development';
+$environment = 'dev';
 
-/**
- * Register the error handler
- */
 $whoops = new \Whoops\Run;
-if ($environment !== 'production') {
+
+if ($environment !== 'prod') {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 } else {
-    $whoops->pushHandler(function($e){
-        echo 'Todo: Friendly error page and send an email to the developer';
+    $whoops->pushHandler(function ($e) {
+        echo 'Unexpected error has occurred.';
     });
 }
 $whoops->register();
 
-$dotenv = new Dotenv(__DIR__.'/../');
+$dotenv = new Dotenv(__DIR__ . '/../');
 $dotenv->load();
