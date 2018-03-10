@@ -1,10 +1,17 @@
-FROM phpdockerio/php71-fpm:latest
+FROM php:7.2-fpm
 
-# Install selected extensions and other stuff
-RUN apt-get update \
-    && apt-get -y --no-install-recommends install php-memcached php7.1-mysql php-redis php7.1-bcmath php7.1-bz2 php7.1-gd php-imagick php7.1-intl php7.1-mbstring php7.1-xsl php-yaml php-xdebug \
-    && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+RUN apt-get update && apt-get install -y \
+        zlib1g-dev \
+    && docker-php-ext-install zip pcntl
 
-USER www-data
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN pecl install xdebug-2.6.0 \
+    && docker-php-ext-enable xdebug
+
+COPY docker/php-fpm/entrypoint.sh /entrypoint.sh
+RUN chmod 755 /entrypoint.sh
 
 WORKDIR "/application"
+
+ENTRYPOINT ["/entrypoint.sh"]

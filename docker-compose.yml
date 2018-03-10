@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+    php-fpm:
+        build:
+          context: .
+          dockerfile: docker/php-fpm/Dockerfile
+        container_name: bitmanage-php-fpm
+        working_dir: /application
+        volumes:
+            - type: bind
+              source: ./
+              target: /application
+        ports:
+            - "7778:8000"
