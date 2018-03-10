@@ -32,9 +32,9 @@ class BlockManager
 
     /**
      * @param string $hashOrNumber
-     * @return array|mixed|null
+     * @return array|null
      */
-    public function getBlockInfo(string $hashOrNumber)
+    public function getBlockInfo(string $hashOrNumber): ?array
     {
         $info = $this->getBlockInfoByHash($hashOrNumber);
 
@@ -59,9 +59,9 @@ class BlockManager
 
     /**
      * @param int $blockNumber
-     * @return array
+     * @return array|null
      */
-    public function getBlockInfoByNumber(int $blockNumber)
+    public function getBlockInfoByNumber(int $blockNumber): ?array
     {
         $hash = $this->getBlockHash($blockNumber);
 
@@ -70,12 +70,9 @@ class BlockManager
 
     /**
      * @param ConnectorInterface $connector
-     * @return $this
      */
-    public function setConnector(ConnectorInterface $connector)
+    public function setConnector(ConnectorInterface $connector): void
     {
         $this->connector = $connector;
-
-        return $this;
     }
 }

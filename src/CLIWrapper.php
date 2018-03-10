@@ -48,7 +48,7 @@ class CLIWrapper implements ConnectorInterface
      * @param array  $arguments
      * @return array
      */
-    protected function runCommand(string $method, array $arguments)
+    protected function runCommand(string $method, array $arguments): array
     {
         $command = $this->buildCommand($method, $arguments);
 
@@ -62,7 +62,7 @@ class CLIWrapper implements ConnectorInterface
      * @param array  $arguments
      * @return string
      */
-    protected function buildCommand(string $method, array $arguments)
+    protected function buildCommand(string $method, array $arguments): string
     {
         $command = $this->bin;
 
@@ -79,7 +79,7 @@ class CLIWrapper implements ConnectorInterface
      * @param array $results
      * @return array
      */
-    protected function buildResponse(array $results)
+    protected function buildResponse(array $results): array
     {
         $mapped = [];
 

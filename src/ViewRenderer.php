@@ -6,7 +6,7 @@ use Whoops\Exception\ErrorException;
 
 class ViewRenderer
 {
-    public function renderView()
+    public function renderView(): void
     {
         $blockNumber = $_POST['block_number'] ?? null;
         $connectorType = $_POST['connector_type'] ?? null;
